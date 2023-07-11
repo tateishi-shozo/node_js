@@ -13,9 +13,24 @@ function start(route,handle){
     var content = route(handle,pathname);
 
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Type', 'text/html');
+    var body = '<html>'+
+    '<head>'+
+    '<meta http-equiv="Content-Type" content="text/html; '+
+    'charset=UTF-8" />'+
+    '</head>'+
+    '<body>'+
+    '<form action="/upload" method="post">'+
+    '<textarea name="text" rows="20" cols="60"></textarea>'+
+    content+
+    '<input type="submit" value="Submit text" />'+
+    '</form>'+
+    '</body>'+
+    '</html>';
+
+    res.write(body);
     // res.write(content);
-    res.write(JSON.stringify(content));
+    // res.write(JSON.stringify(content));
     res.end();
     });
 
