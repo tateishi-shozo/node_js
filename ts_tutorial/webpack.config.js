@@ -1,14 +1,12 @@
 const path = require('path');
 
-// const HOST = "0.0.0.0";
-
 module.exports = {
     // モジュールバンドルを行う起点となるファイルの指定
     // 指定できる値としては、ファイル名の文字列や、それを並べた配列やオブジェクト
-    // 下記はオブジェクトとして指定した例 
+    // 下記はオブジェクトとして指定した例
     entry: {
-        bundle: './src/app.ts'
-    },  
+        test: './src/app.ts'
+    },
     output: {
         // モジュールバンドルを行った結果を出力する場所やファイル名の指定
         // "__dirname"はこのファイルが存在するディレクトリを表すnode.jsで定義済みの定数
@@ -22,7 +20,6 @@ module.exports = {
         extensions:['.ts','.js']
     },
     devServer: {
-        // host: HOST,
         // webpack-dev-serverの公開フォルダ
         static: {
             directory: path.join(__dirname, "dist"),
